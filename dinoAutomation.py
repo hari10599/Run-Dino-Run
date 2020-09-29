@@ -41,11 +41,12 @@ class Game:
 def get_state(game, action):
     reward = 1
     if action == 1:
+        reward = -10
         game.jump()
     image = get_screenshot(game.webdriver)
     isOver = game.is_crashed()
     if isOver:
-        reward = -10
+        reward = -100
     return image, reward, isOver
 
 
